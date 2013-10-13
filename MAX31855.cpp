@@ -23,6 +23,7 @@ double MAX31855::intTemp(int _SCALE) {
   }
   
   int inTemp;
+  double _internal;
   
   // Dispose of un-needed bits and preserve sign.
   if(data & 0x00008000){
@@ -34,13 +35,13 @@ double MAX31855::intTemp(int _SCALE) {
   
   // Compute real world value...
   if(_SCALE){
-    inTemp = (inTemp * 0.1125) + 32;
+    _internal = (inTemp * 0.1125) + 32;
   }
   else{
-    inTemp *= 0.0625;
+    _internal = inTemp * 0.0625;
   }
   
-  return inTemp;
+  return _internal;
 }
 
 
@@ -52,6 +53,7 @@ double MAX31855::extTemp(int _SCALE) {
   }
   
   int exTemp;
+  double _external;
   
 // Dispose of un-needed bits and preserve sign.
  if(data & 0x80000000){
@@ -63,13 +65,13 @@ double MAX31855::extTemp(int _SCALE) {
 
 // Compute real world value...
   if(_SCALE){
-    exTemp = (exTemp * 0.45) + 32;
+    _external = (exTemp * 0.45) + 32;
   }
   else{
-    exTemp *= 0.25;
+    _external = exTemp* 0.25;
   }
   
-  return exTemp;
+  return _external;
 }
 
 

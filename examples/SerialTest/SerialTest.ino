@@ -32,7 +32,7 @@ void loop(){
   previousMicros = micros();
   TC1.getTemp(external, internal, scale, error);
   Serial.print(micros() - previousMicros);
-  Serial.write(0xB5);                                                        // Print µ 'mu'
+  Serial.write(0xB5);                                                        // Print µ 'mu'           // Arduino IDE's UTF-8 encoding adds extra character infront of printed mu.
   Serial.println("s taken to read MAX31855*");
   Serial.println();
   
@@ -58,13 +58,13 @@ void loop(){
   
   Serial.println(error, BIN);
   if (error & 0x01){
-    Serial.println("ERROR: Thermocouple Open!!");
+    Serial.print("ERROR: Thermocouple Open!!");
   }else if (error & 0x02){
-    Serial.println("ERROR: Thermocouple Shorted To Ground!!");
+    Serial.print("ERROR: Thermocouple Shorted To Ground!!");
   }else if (error & 0x04){
-    Serial.println("ERROR: Thermocouple Shorted To Power!!");
-  }else{
-    Serial.println();
+    Serial.print("ERROR: Thermocouple Shorted To Power!!");
+//  }else{
+//    Serial.println();
   }
   delay(100);
 }

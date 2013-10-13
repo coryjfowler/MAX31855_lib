@@ -12,14 +12,15 @@ Copy this into your "[...]/MySketches/libraries/" folder and restart the Arduino
 
 Useage
 ==============
-There are three functions that will return independant temperature values.
+There are three functions, two will return independant temperature values and one returns the error bits.
 The library prevents re-reading the IC by reading the IC at an interval defined in MAX31855.h.
 The interval is set to 50 milliseconds and is to keep the data paired. 
 'SCALE' only supports 0 for Celsius/Centigrade or 2 for Fahrenheit at this time.
 
-doubleVariable = intTemp(SCALE);
-doubleVariable = extTemp(SCALE);
-byteVariable = getErr(SCALE);
+InternalTempDoubleVariable = intTemp(SCALE);
+ExternalTempDoubleVariable = extTemp(SCALE);
+ErrorByteVariable = getErr(SCALE);
+
 
 There is a function that will pull in all values simultaneously and reads the IC as the function is called.
 'SCALE' only supports 0 for Celsius/Centigrade, 1 for Kelvin, 2 for Fahrenheit, and 3 for Rankine.
