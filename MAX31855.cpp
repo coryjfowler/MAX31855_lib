@@ -116,21 +116,26 @@ void MAX31855::getTemp(double &_external, double &_internal, byte _SCALE, byte &
 #endif
     
 // Calculate real world value for farenheit or celsius scales. 
-if(_SCALE == 3){
+switch(_SCALE){
+	case(3):
 	_internal = (inTemp * 0.1125) + 273.15;
 	_external = (exTemp * 0.45) + 273.15;
-  }
-  else if(_SCALE == 2){
+	break;
+
+        case(2):
 	_internal = (inTemp * 0.1125) + 32;
 	_external = (exTemp * 0.45) + 32;
-  }
-  else if (_SCALE){
+	break;
+
+        case(1):
 	_internal = (inTemp * 0.0625) + 273.15;
 	_external = (exTemp * 0.25) + 273.15;
-  }
-  else {
+	break;
+
+        default:
 	_internal = inTemp * 0.0625;                                  
 	_external = exTemp * 0.25;
+	break;
 }
 
 #if DEBUG
