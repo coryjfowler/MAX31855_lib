@@ -12,10 +12,12 @@ MAX31855		KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
+begin     KEYWORD2
 intTemp		KEYWORD2
 extTemp		KEYWORD2
 getErr		KEYWORD2
 getTemp		KEYWORD2
+setMUX    KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
