@@ -40,10 +40,10 @@ void loop(){
   TCM.setMUX(channel);                                                        // Set MUX channel, enable MUX, and start MAX31855 conversion process.
   TCM.getTemp(external, internal, scale, error);                              // Read MAX31855
   
-  if(channel == 0){
+  if(channel == 0){                                                           // Just print the channel 1's cold junction
     Serial.println("Cold Junction Temperature:");
     Serial.print(internal);
-    Serial.write(0xB0);                                                        // Print ° 'degree'   // Arduino IDE's UTF-8 encoding adds extra character infront of printed degree symbol.
+    Serial.write(0xB0);                                                       // Print ° 'degree'   // Arduino IDE's UTF-8 encoding adds extra character infront of printed degree symbol.
     Serial.println("C");
     Serial.println();
   }
@@ -63,26 +63,6 @@ void loop(){
   } else {
     Serial.println();
   }
-  
-/*  if(channel == 7){
-    average = 0;
-    
-    for(byte i = 0; i < 8; i++)
-      average += avg[i];
-      
-    average /= 8;
-    
-    Serial.println("Average Cold Junction Temperature:");
-    Serial.print(average);
-    Serial.write(0xB0);                                                        // Print ° 'degree'
-    Serial.println("C");
-
-/*  
-  Serial.print(TCM.intTemp(2));
-  Serial.write(0xB0);
-  Serial.println("F");
-  Serial.println();
-} */
   
   if(channel == 7){
     channel = 0;
