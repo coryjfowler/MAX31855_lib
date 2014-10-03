@@ -11,7 +11,7 @@
 #define DEBUG 0
 
 // Set to 1 if input is multiplexed (Ocean Controls Shield)
-#define MUX   1
+#define MUX   0
 // Pins for multiplexor control (Ignore if not needed.)
 #define AD0   4
 #define AD1   5
