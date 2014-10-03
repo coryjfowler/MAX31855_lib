@@ -17,6 +17,7 @@ byte cls[] = {0x1B,0x5B,0x32,0x4A,0x1B,0x5B,0x3B,0x48,0x0A,0x0D};            // 
 
 void setup(){
   Serial.begin(115200);
+  TC1.begin();
   pinMode(10, OUTPUT);
   digitalWrite(10, HIGH);
 }
@@ -66,5 +67,5 @@ void loop(){
 //  }else{
 //    Serial.println();
   }
-  delay(100);
+  delay(1000);
 }
